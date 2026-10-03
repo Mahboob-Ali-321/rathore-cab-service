@@ -1,0 +1,6 @@
+{
+  "name": "Rathore Cab Service & Travels",
+  "description": "Indore's trusted all-India tour and taxi service specializing in Mahakaleshwar, Omkareshwar, outstation cabs, and sacred pilgrimage tours.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
