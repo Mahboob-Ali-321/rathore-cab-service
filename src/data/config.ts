@@ -190,6 +190,9 @@ export interface GalleryPhoto {
 export const GOOGLE_MAPS_URL =
   'https://www.google.com/maps/place/Rathore+cab+service+in+indore/@22.6737188,75.7277514,12z/data=!4m10!1m2!2m1!1srathore+cab+service+indore+!3m6!1s0x3962fd4d4474ee77:0x2848d76ab7cd4a29!8m2!3d22.6737188!4d75.8801867!15sChpyYXRob3JlIGNhYiBzZXJ2aWNlIGluZG9yZVocIhpyYXRob3JlIGNhYiBzZXJ2aWNlIGluZG9yZZIBDHRheGlfc2VydmljZZoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyczVkMDVxUWtWaWFtTXdUVmhyZW1ORVdscFNNVGxTVFVad1IxVnVZeEFC4AEA-gEECAAQNg!16s%2Fg%2F11ykysqt34?entry=ttu';
 
+// Single Source of Truth for WhatsApp Destination Number
+export const WHATSAPP_NUMBER = '919826611038';
+
 // Global Business Information
 export const businessData: BusinessConfig = {
   name: {
@@ -211,7 +214,7 @@ export const businessData: BusinessConfig = {
   phoneDisplay: '086027 52672',
   phoneRaw: '8602752672',
   phoneTel: '+918602752672',
-  whatsappNumber: '918602752672',
+  whatsappNumber: WHATSAPP_NUMBER,
   address: {
     en: '1, Khandwa Naka, Bhavna Nagar, Indore, Madhya Pradesh 452020',
     hi: '1, खंडवा नाका, भावना नगर, इंदौर, मध्य प्रदेश 452020'
@@ -1442,7 +1445,7 @@ export function createWhatsAppBookingUrl(data: {
   customMessage?: string;
 }): string {
   if (data.customMessage) {
-    return `https://api.whatsapp.com/send?phone=${businessData.whatsappNumber}&text=${encodeURIComponent(data.customMessage)}`;
+    return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(data.customMessage)}`;
   }
 
   const name = data.name || 'Customer';
@@ -1464,5 +1467,5 @@ export function createWhatsAppBookingUrl(data: {
     `Please confirm cab availability and provide fare details.`
   ].join('\n');
 
-  return `https://api.whatsapp.com/send?phone=${businessData.whatsappNumber}&text=${encodeURIComponent(message)}`;
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
 }
